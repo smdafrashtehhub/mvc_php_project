@@ -1,0 +1,12 @@
+RewriteEngine On
+
+# تعریف مسیر پایه (در صورتی که پروژه شما در پوشه‌ای خاص است)
+#RewriteBase /php_project/mvc/
+
+# اگر درخواست به فایل یا پوشه‌ای که وجود دارد (مثل .jpg یا .css) نباشد، آن را به index.php هدایت کن
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# هدایت تمامی درخواست‌ها به index.php در پوشه public
+RewriteRule ^(.*)$ index.php [QSA,L]
+
